@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html>
+{{ define "index2"}}
+<html>
+<head>
+  <title>首页</title>
+
+  <style type="text/css">
+    .account{
+      width: 20%;
+      margin: 0 auto;
+      padding: absolute;
+      top: 6em;
+      bottom: 40%;
+  
+    }
+  
+    body{
+    background-color: #eee;
+  }
+  table{
+    
+    position: absolute;
+    top: 1em;
+    margin: 0em;
+    left: 6%;
+    text-decoration:none;
+    border-style: 0px solid;
+   
+  }
+
+  form{
+    position: absolute;
+    top: 25%;
+    left: 30em;
+  }
+  </style> 
+  
+</head>
+<body>
+
+
+
+
+
+
+
+<style type="text/css">
+
+.leftlist{
+
+	position: absolute;
+	top: 15%;
+
+}
+
+  body{
+  background-color: #eee;
+}
+
+.listcenter{
+	width: 80%;
+  background-color: white;
+	border: 3px solid white;
+	position: absolute;
+	top: 18%;
+	left: 18%;
+	bottom: 40%;
+
+}
+.container{
+  position: absolute;
+  left: 17%;
+  top: 75%;
+}
+
+.table{
+  position: absolute;
+  width: 70%;
+  left: 20%;
+  top: 18%;
+}
+
+
+.common_table{
+  position: absolute;
+        top: 15%;
+        left: 25%;
+        font-size: 1rem;
+}
+.dels{
+        position: absolute;
+        left: 59%;
+    }
+    .dels2{
+        position: absolute;
+        left: 84%;
+    }
+    .dels1{
+        position: absolute;
+        left: 33%;
+    }
+
+    .lef{
+        height: 50px;
+        position: absolute;
+        left: 16%;
+        top: 15%;
+        font-size: 22px;
+}
+</style>
+
+
+
+<body>
+
+
+    <table class="lef">
+        <tr>
+            <td> <a class="nav-link active" href="/">首页</td>        
+        </tr>
+        <tr>
+            <td> <a class="nav-link active" href="/addshow">添加文章</td>
+            
+        </tr>
+        <tr>
+            <td> <a class="nav-link active" href="#">文章管理</td>
+        </tr>
+    
+        <tr>
+            <td> <a class="nav-link active" href="#">文章列表</td>
+        </tr>
+    </table>
+    
+
+<table class="common_table">
+  <tr>
+      <th width="20%">文章标题</th>
+      <th width="10%">文章内容</th>
+       <!-- <th width="16%">添加时间</th> -->
+      <!-- <th width="7%">阅读量</th> -->
+      <th width="7%">删除</th>
+      <th width="7%">编辑</th>
+      <!-- <th width="10%">文章类型</th> -->
+  </tr>
+
+{{ range . }}
+   <tr>
+      <td>{{ .Id }}</td>
+      <td><a href="/content?id={{ .Id }}">查看详情</a></td>
+      <td> {{ .Title }}</td>
+      <td>{{ .Content }}</td>
+      <td><a href="/delete?id={{ .Id }}" class="dels">删除</a></td>
+      <td><a href="/edit?id={{ .Id }}">编辑</a></td>
+      <!-- <td>财经新闻</td> -->
+    </tr>
+      {{ end }}
+</table>
+
+</body>
+</html>
+
+{{ end  }}

@@ -1,0 +1,157 @@
+    <!DOCTYPE html>
+    {{ define "index"}}
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>首页</title>
+    </head>
+
+    <body>
+
+
+    <style type="text/css">
+
+        .pannel{
+                    width: 70%;
+                    position: absolute;
+                    left: 28%;
+                    top: 8%;
+                }
+                
+                .input_multxt{
+                    height: 300px;
+                }
+        
+                .lef{
+                    height: 50px;
+                    position: absolute;
+                    left: 16%;
+                    top: 15%;
+                    font-size: 22px;
+                    
+                }
+                .unserinfo{
+                    position: absolute;
+                    left: 35%;
+                }
+                .userinfo1{
+                    position:absolute;
+                    top: 4%;
+                    left: 80%;
+                }
+
+    .common_table{
+        position: absolute;
+        top: 15%;
+        left: 25%;
+        font-size: 1rem;
+    }
+    .dels{
+        position: absolute;
+        left: 59%;
+    }
+    .dels2{
+        position: absolute;
+        left: 84%;
+    }
+    .dels1{
+        position: absolute;
+        left: 33%;
+    }
+    </style>
+    </head>
+    <body>
+
+    
+    <table class="lef">
+        <tr>
+            <td> <a class="nav-link active" href="/">首页</td>        
+        </tr>
+        <tr>
+            <td> <a class="nav-link active" href="/show">添加文章</td>
+            
+        </tr>
+        <tr>
+            <td> <a class="nav-link active" href="#">文章管理</td>
+        </tr>
+    
+        <tr>
+            <td> <a class="nav-link active" href="#">文章列表</td>
+        </tr>
+    </table>
+    
+        
+
+    <div class="userinfo1">
+        {{if .Account}}
+        <a href="/userinfo">用户信息</a>
+        <a href="/logout">注销</a>
+        {{else}}
+        <a href="/login">登录</a>
+        <a href="/register">注册</a>
+        {{end}}
+        <br>
+        <h1>欢迎，{{if .Account }}{{.Account}}{{else}}游客{{end}}</h1>  
+    </div>  
+    
+
+    <!-- <table class="common_table">
+        <tr>
+            <th width="20%">文章标题</th>
+            <th width="10%">文章内容</th>
+            <th width="16%">添加时间</th>
+            <th width="7%">阅读量</th>
+            <th width="7%">删除</th>
+            <th width="7%">编辑</th>
+            <th width="10%">文章类型</th>
+        </tr>
+
+   
+        <tbody>
+        {{ range. }}
+            <tr>
+            <td>{{ .Id }}</td>
+            <td> {{ .Title }} </td>
+            <td>{{ .Content }} </td> 
+            <td><a href="/show?id={{ .Id }}">View</a></td>
+            <td><a href="/edit?id={{ .Id }}">Edit</a></td>
+            <td><a href="/delete?id={{ .Id }}">Delete</a><td>
+            </tr>
+        {{ end }}
+        </tbody>
+    </table> -->
+        
+
+
+    <table class="common_table">
+            <tr>
+                <th width="20%">文章标题</th>
+                <th width="10%">文章内容</th>
+                <th width="16%">添加时间</th>
+                <th width="7%">阅读量</th>
+                <th width="7%">删除</th>
+                <th width="7%">编辑</th>
+                <th width="10%">文章类型</th>
+            </tr>
+          
+          {{ range . }}
+             <tr>
+                <td>{{ .Id }}</td>
+                <td><a href="/content?id={{ .Id }}">查看详情</a></td>
+                <td> {{ .Title }}</td>
+                <td>{{ .Content }}</td>
+                <td><a href="/delete?id={{ .Id }}" class="dels">删除</a></td>
+                <td><a href="/edit?id={{ .Id }}">编辑</a></td>
+                <td>财经新闻</td>
+              </tr>
+                {{ end }}
+          </table>
+
+
+    </body>
+    </html>
+    {{ end }} 
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{{ define "index"}}
+<html>
+<head>
+	<title>index</title>
+
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<div>
+	<table>
+		<tr>
+			<td style="position: absolute;color: red;width: 100%;background-color: gray;height: 16%;"></td>
+		</tr>
+		<tr>
+			<td style="position: absolute;height: 85%;top:17%;width: 15%;background-color: green;"></td>
+		</tr>
+	</table>
+</div>
+
+<div style="position: absolute;font-size: 80px;color: black;right: 2%;top: 6%;">	
+	<table>
+		<td><a style="text-decoration: none;color: white;" href="/login">login</a></td>
+		<td><a style="text-decoration: none; color: white;" href="/register">register</a></td>
+	</table>
+
+</div>
+
+
+<div style="position: absolute;left:5%;color: rgb(40, 4, 240); font-size: 32px;top: 25%;">
+	<table>
+		<tr >
+			<td><a  style="text-decoration: none;color: white;" href="/index">Index</a></td>
+		</tr>
+		<tr>
+			<td><a style="text-decoration: none;color: white;" href="/index">ArticleList</a></td>
+		</tr>
+		<tr>
+			<td><a style="text-decoration: none;color: white;" href="/">ArticlManage</a></td>
+		</tr>
+		<tr>
+			<td><a style="text-decoration: none;color: white;" href="/addshow">AddArticle</a></td>
+		</tr>
+	</table>
+</div>
+
+
+<div style="position: absolute;left: 25%;top: 20%;font-size: 25px;">
+	<table style=" border: 1px solid gray;">
+		<tr>
+			<!-- <th style="width:200px;">ID</th> -->
+			<th style="width:200px;">标题</th>
+			<th style="width:200px;">内容</th>
+			<th style="width:200px;">编辑</th>
+			<th style="width:200px;">删除</th>
+		</tr>
+
+		  {{ range . }}
+		<tr>
+			<th style=" opacity: 0;">{{ .Id }}</th>
+			<th style="position: absolute;left: 6%;">{{ .Title }}</th>
+			<th style=" opacity: 0;">{{ .Content }}</th>
+			<td style="position: absolute;left: 32%;"><a href="/content?id={{ .Id }}">查看详情</a></td>
+			<td style="position: absolute;left: 59%;"><a href="/edit?id={{ .Id }}">编辑</a></td>
+			<td style="position: absolute;left: 84%;"><a href="/delete?id={{ .Id }}" class="dels">删除</a></td>
+		</tr>
+		{{ end }}
+	</table>
+</div>
+
+
+</body>
+</html>
+
+{{ end }}
